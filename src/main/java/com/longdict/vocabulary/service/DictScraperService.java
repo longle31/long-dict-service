@@ -22,11 +22,11 @@ public class DictScraperService {
 		return VocabularyConverter.create().convert(dto);
 	}
 	
-	public static class DictScraperClient {
+	private static class DictScraperClient {
 
 		public VocabularyDto get(@NotBlank String word) {
 			RestTemplate restTemplate =  new RestTemplate();
-			URI url = URI.create("http://127.0.0.1:5000/vocabulary/".concat(word));
+			URI url = URI.create("http://127.0.0.1:5000/vocabulary/".concat(word));  
 //			return restTemplate.getForEntity(url, VocabularyDto.class).getBody();
 			ResponseEntity<VocabularyDto> response = restTemplate.getForEntity(url, VocabularyDto.class);
 			if(response.getStatusCode() == HttpStatus.NOT_FOUND) {

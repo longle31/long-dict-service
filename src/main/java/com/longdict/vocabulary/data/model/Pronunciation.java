@@ -5,8 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Builder;
+import lombok.Data;
+
 @Entity
 @Table(name = "pronunciation")
+@Data
 public class Pronunciation {
 	@Id
 	private String ipa;
@@ -14,22 +18,4 @@ public class Pronunciation {
 	@Column(columnDefinition = "TEXT")
 	private String voices;
 	
-	public String getIpa() {
-		return ipa;
-	}
-
-	public void setIpa(String ipa) {
-		this.ipa = ipa;
-	}
-
-	public String getVoices() {
-		return voices;
-	}
-
-	public void setVoices(String voices) {
-		this.voices = voices;
-	}
-
-	public Pronunciation() {
-	}
 }
